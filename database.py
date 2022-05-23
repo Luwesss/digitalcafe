@@ -17,7 +17,7 @@ def get_user(username):
     return user
 
 def update_user(username, newPass):
-    order_management_db['customers'].update({"username":username}, {"$set":{"password":newPass}})
+    order_management_db['customers'].update_one({"username":username}, {"$set":{"password":newPass}})
     return 
 
 def get_product(code):
@@ -56,7 +56,7 @@ def get_branches():
 
 def create_order(order):
     orders_coll = order_management_db['orders']
-    orders_coll.insert(order)
+    orders_coll.insert_one(order)
 
 def get_orders(username):
     order_list = []

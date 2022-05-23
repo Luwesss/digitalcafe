@@ -22,3 +22,4 @@ def create_order_from_cart():
                             "subtotal":value["subtotal"]})
     order.setdefault("details",order_details)
     db.create_order(order)
+
